@@ -17,5 +17,5 @@ void loop()
 {  
     callback = Scheduler_TicksCounter;
     TimerUtils_initTimer();
-    Scheduler_Run();
+    Scheduler_Dispacther();
 }
