@@ -6,6 +6,15 @@
 #define READY 3
 #define IDLE 4
 
+enum {
+	TASK_STATUS_FAIL = 0,
+	TASK_STATUS_PASS,
+	TASK_ALREADY_STARTED,
+	TASK_ALREADY_STOPPED,
+	NULL_FUNCTION_POINTER,
+	TASK_COUNT_EXCEEDED_ERROR
+};
+
 #define MAX_ALLOWABLE_TASKS 20
 
 typedef unsigned char u8;
@@ -27,6 +36,7 @@ u8 Scheduler_AddTask(SchedulerTaskID taskID, u32 timer, void(*fp)());
 u8 Scheduler_StartTask(SchedulerTaskID taskID);
 u8 Scheduler_StopTask(SchedulerTaskID taskID);
 void Scheduler_Init();
-void Scheduler_Run();
+void Scheduler_Dispacther();
+void Scheduler_MainLoop();
 
 #endif
